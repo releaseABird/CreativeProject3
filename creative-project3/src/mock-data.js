@@ -150,5 +150,21 @@ let mock = [{
     price: "15.00",
     image: "squid3.jpg",
     type: "squid"
+},
+{
+    id:23,
+    name:"kappa stamp",
+    price: "8.00",
+    image: "myst1.jpg",
+    type: "other"
+},
+{
+    id:24,
+    name:"mystery parcel",
+    price: "15.00",
+    image: "myst2.jpg",
+    type: "other"
 }
 ]
+
+export default mock;

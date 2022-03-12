@@ -6,14 +6,15 @@ import router from './router'
 
 //Vue.config.productionTip = false
 import mock from './mock-data.js'
-import HelloWorld from './components/HelloWorld'
 import HomeView from './components/HomeView'
+
 
 
 let data = {
   products: mock,
   cart: [
-  ]
+  ],
+  selectedProdId: 0
 }
 
 new Vue({

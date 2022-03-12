@@ -1,30 +1,74 @@
 <template>
-
-
 <div id="app">
 
 
-  <nav>
-    <main class="container">
-      <router-view></router-view>
-    </main>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <img class="sidebar-logo" alt="Release A Bird" src="../images/mylogo.png">
+      </div>
 
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+      <ul class="list-unstyled components">
+        <p id="sub-title">Lisa Bird's Shop</p>
+        <li>
+          <a href="/">Home</a>
 
+        </li>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Zines</a>
+          <ul class="collapse list-unstyled" id="pageSubmenu">
+            <li>
+              <a href="./public/book.html">DeMoss Digest #1</a>
+            </li>
+            <li>
+              <a href="#">DeMoss Digest #2</a>
+            </li>
+            <li>
+              <a href="#">DeMoss Digest #3</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Portfolio</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+
+    <div id="content">
+      <button type="button" id="sidebarCollapse" class="navbar-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+
+    </div>
+
+
+    <div class="page">
+      <router-view />
+    </div>
+
+
+  </div>
 
   <div class="footer-container">
     <footer>
       <div class="footer-item">
-
+        <br>
         <p>My github: <a href="https://github.com/BYUCS260/grocery-store-releaseABird.git">https://github.com/BYUCS260/grocery-store-releaseABird.git</a></p>
       </div>
     </footer>
   </div>
 </div>
-</template>''  
+</template>''
 
 
 
@@ -51,8 +95,17 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-.footer-item {
+.footer-container {
   background-color: #aa7946;
+  height: 5em;
 
+}
+
+#sub-title p {
+  color: black;
+}
+
+.page {
+  padding: 2em;
 }
 </style>
