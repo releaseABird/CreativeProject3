@@ -19,7 +19,7 @@
 export default {
   name: 'ProductList',
   props: {
-    products: Array,
+    product: Object,
 
   },
   methods: {
