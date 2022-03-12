@@ -4,7 +4,7 @@
   <div class="product">
 
       <div class="prod-image">
-        <img :src="'/images/'+this.$root.$data.products[selectedProdId - 1].image">
+          <img id="theImage" :src="'/images/' + this.$root.$data.products[this.$root.$data.selectedProdId - 1].image">
       </div>
       <div class="info">
         <h1>{{product.name}} <br> {{product.price}}</h1>

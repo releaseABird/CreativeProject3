@@ -6,16 +6,24 @@
 
 
 
+
+
   <div class="pageInfo">
+    <p v-show="id === 0">No product has been selected.
+    Please go back and select an item you would like to order.</p>
+    
     <img id="theImage" :src="'/images/' + this.$root.$data.products[this.$root.$data.selectedProdId - 1].image">
     <div class="prodText">
       <h1>{{product.name}}</h1>
       <p>{{product.price}}</p>
       <form>
         <label>quantity:</label>
-        <input type="number" min="1" value=1>
+        <input type="number" v-model="quantity" min="1" value=1 @change="update(quantity)">
       </form>
-      <button v-on:click.native="addtoCart()">Add to Cart</button>
+
+      <button class="auto" v-on:click="addToCart()">Add to Cart</button>
+
+
     </div>
   </div>
 </div>
@@ -23,13 +31,11 @@
 
 <script>
 // @ is an alias to /src
-import ProductList from '@/components/ProductList.vue'
+
 
 export default {
   name: 'ProductView',
-  components: {
-    ProductList
-  },
+
   data() {
     return {
       quantity: 1
@@ -38,11 +44,15 @@ export default {
   computed: {
     product() {
       return this.$root.$data.products[this.$root.$data.selectedProdId - 1];
+    },
+    id() {
+      return this.$root.$data.selectedProdId;
     }
   },
 
   methods: {
     addToCart() {
+      console.log("yayyyyyy");
       let id = this.$root.$data.selectedProdId;
       console.log("purchasing" + this.$root.$data.products[id - 1].name);
       let o = {
@@ -52,13 +62,18 @@ export default {
         type: this.$root.$data.products[id - 1].type,
         image: this.$root.$data.products[id - 1].image
       };
-
-      this.$root.$data.cart.push(o);
+      for (let i = 0; i < this.quantity; i++){
+        this.$root.$data.cart.push(o);
+      }
 
     },
     goBack() {
       this.$root.$data.selectedProdId = 0;
     },
+    update(quantity){
+      this.quantity = parseInt(quantity);
+    }
+
 
   }
 }

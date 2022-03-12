@@ -1,8 +1,11 @@
 <template>
 <div>
   <a href="/">back to shopping</a>
-  <h1> Your Cart </h1>
-  <h2 v-show="cartLength === 0">There are no Items in your Cart.</h2>
+  <hr>
+  <h1> Your Cart: </h1>
+  <h2 v-show="cartLength === 0">There are no Items in your Cart.
+  </h2>
+  <img v-show="cartLength === 0" src="../../images/emptyCart.png" class="emptyCart">
   <CartList :products="cart" />
 
 </div>
@@ -32,3 +35,12 @@ export default {
   }
 }
 </script>
+
+<style>
+.emptyCart {
+width: 60%;
+height: 60%;
+object-fit: contain;
+
+}
+</style>
