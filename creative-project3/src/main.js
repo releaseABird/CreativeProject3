@@ -6,7 +6,6 @@ import router from './router'
 
 //Vue.config.productionTip = false
 import mock from './mock-data.js'
-import HomeView from './components/HomeView'
 
 
 

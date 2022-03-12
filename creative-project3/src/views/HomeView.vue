@@ -1,8 +1,7 @@
 <template>
 <div class = home-page>
 
-
-
+<div class = home-container>
   <div class="search-wrapper">
     <div class="search">
       <form class="pure-form">
@@ -10,15 +9,19 @@
       </form>
     </div>
 
-    <div id="side">
-      
-      <router-link to="/cart">
-        <div class="menu-item">
-          <img src="/images/love.png">
-          <p v-show="cartLength === 1">{{cartLength}} item</p>
-          <p v-show="cartLength != 1"> {{cartLength}} items</p>
-        </div>
-      </router-link>
+
+
+    <form>
+      <label>filter by: </label>
+      <select v-model="selectedValue" @change="select(selectedValue)">
+        <option value="">none</option>
+        <option value="sticker">stickers</option>
+        <option value="print">prints</option>
+        <option value="other">other</option>
+
+      </select>
+      </form>
+
     </div>
 
     <hr>
@@ -45,28 +48,20 @@ export default {
   data() {
     return {
       searchText: '',
+      selectedValue: '',
     }
   },
   computed: {
     products() {
-    return this.$root.$data.products.filter(product => product.name.toLowerCase().search(this.searchText.toLowerCase()) >= 0);
+    return this.$root.$data.products.filter(product => (product.type.search(this.selectedValue) >= 0)).filter(product => product.name.toLowerCase().search(this.searchText.toLowerCase()) >= 0);
     },
+  },
+  methods: {
 
-    sortedArray() {
-		let sortedProducts = this.$root.$data.products;
-
-		sortedProducts = sortedProducts.sort((a,b) => {
-			let fa = a.name.toLowerCase(), fb = b.name.toLowerCase();
-			if (fa < fb) {
-				return -1
-			}
-			if (fa > fb) {
-				return 1
-			}
-			return 0
-		})
-	}
-
+    select(type){
+      this.type = type;
+      console.log("the type is " + type);
+    }
   }
 }
 </script>
@@ -88,6 +83,16 @@ flex-direction: right;
   height: auto;
   object-fit: contain;
 
+  }
+
+  .home-container{
+    display:flex;
+  }
+
+  .search-wrapper{
+  width:100%;
+  padding: 0;
+  margin:0;
   }
 
 

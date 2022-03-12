@@ -37,8 +37,21 @@
         <li>
           <a href="#">Contact</a>
         </li>
+
+        <li>
+        <router-link to="/cart">
+        <p>Click to Check Out</p>
+        <img class="cartImg" src="../images/shoppingCart.png">
+        <p v-show="cartLength === 1">Your Cart: {{cartLength}} item</p>
+        <p v-show="cartLength != 1">Your Cart: {{cartLength}} items</p>
+        </router-link>
+        </li>
+
       </ul>
+
     </nav>
+
+
 
 
     <div id="content">
@@ -70,6 +83,17 @@
 </div>
 </template>''
 
+<script>
+export default{
+  name:'AppVue',
+  computed: {
+    cartLength() {
+      return this.$root.$data.cart.length;
+    }
+  }
+}
+</script>
+
 
 
 
@@ -80,6 +104,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.cartImg{
+height: 100%;
+width: 100%;
+object-fit: contain;
 }
 
 nav {

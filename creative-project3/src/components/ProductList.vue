@@ -8,7 +8,9 @@
         <img :src="'/images/'+product.image">
       </div>
       <div class="info">
+        <router-link to="/product" v-on:click.native="selectProd(product.id)">
         <h1>{{product.name}} <br> {{product.price}}</h1>
+        </router-link>
       </div>
 
     </div>
@@ -25,11 +27,9 @@ export default {
 
   },
   methods: {
-    addToCart(id) {
-    console.log(this.$root.$data.products[id - 1].name);
-    let o = {name: this.$root.$data.products[id - 1].name, price: this.$root.$data.products[id - 1].price, id: id, type: this.$root.$data.products[id - 1].type, image: this.$root.$data.products[id - 1].image};
-
-    this.$root.$data.cart.push(o);
+    selectProd(id) {
+      console.log(this.$root.$data.products[id - 1].name);
+      this.$root.$data.selectedProdId = id;
 
     }
   }
