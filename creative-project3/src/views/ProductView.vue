@@ -5,13 +5,9 @@
   </router-link>
 
 
-
-
-
   <div class="pageInfo">
     <p v-show="id === 0">No product has been selected.
     Please go back and select an item you would like to order.</p>
-    
     <img id="theImage" :src="'/images/' + this.$root.$data.products[this.$root.$data.selectedProdId - 1].image">
     <div class="prodText">
       <h1>{{product.name}}</h1>

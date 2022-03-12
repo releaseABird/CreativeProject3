@@ -147,21 +147,21 @@ let mock = [{
 {
     id:22,
     name:"hamburger squid",
-    price: "15.00",
+    price: "$15.00",
     image: "squid3.jpg",
     type: "other"
 },
 {
     id:23,
     name:"kappa stamp",
-    price: "8.00",
+    price: "$8.00",
     image: "stamp.png",
     type: "other"
 },
 {
     id:24,
     name:"mystery parcel",
-    price: "15.00",
+    price: "$15.00",
     image: "parcel.png",
     type: "other"
 }

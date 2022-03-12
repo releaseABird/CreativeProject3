@@ -11,33 +11,15 @@
       <ul class="list-unstyled components">
         <p id="sub-title">Lisa Bird's Shop</p>
         <li>
-          <a href="/">Home</a>
+          <router-link to="/">
+            <a href="#">Home</a>
+          </router-link>
 
         </li>
         <li>
           <a href="/about">About</a>
         </li>
-        <li>
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Zines</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu">
-            <li>
-              <a href="./public/book.html">DeMoss Digest #1</a>
-            </li>
-            <li>
-              <a href="#">DeMoss Digest #2</a>
-            </li>
-            <li>
-              <a href="#">DeMoss Digest #3</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Portfolio</a>
-        </li>
-        <li>
-          <a href="#">Contact</a>
-        </li>
-
+        
         <li>
         <router-link to="/cart">
         <p>Click to Check Out</p>

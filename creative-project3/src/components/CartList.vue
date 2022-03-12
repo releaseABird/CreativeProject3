@@ -1,13 +1,21 @@
 <template>
+
+
+
+
 <div class="wrapper">
 
   <div class="products">
+  <div class="total">
+    <h1 v-show="products.length > 0">Your total: ${{total}}</h1>
+  </div>
     <div class="product" v-for="product in products" :key="product.id">
-      <div class="info">
-        <h1>{{product.name}}</h1>
-      </div>
+
       <div class="image">
         <img :src="'/images/'+product.image">
+      </div>
+      <div class="info">
+        <h1>{{product.name}}</h1>
       </div>
       <div class="price">
         <h2>{{product.price}}</h2>
@@ -25,7 +33,20 @@ export default {
   props: {
     products: Array,
 
+
   },
+  computed: {
+  total() {
+    let tot = 0.00;
+    for (let i = 0; i < this.$props.products.length; i++) {
+      tot += parseFloat(this.$props.products[i].price.substring(1));
+      }
+    return tot.toFixed(2);
+  }
+
+  },
+
+
   methods: {
 
     removeFromCart(id) {
@@ -78,14 +99,13 @@ export default {
 }
 
 .info {
-  background: #F2921D;
-  color: #000;
-  padding: 10px 30px;
+  color: #b45f06;
+  padding: 5px 5px;
   height: 80px;
 }
 
 .info h1 {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .info h2 {
@@ -104,7 +124,7 @@ export default {
 
 button {
   height: 50px;
-  background: #990000;
+  background: #ff6d6d;
   color: white;
   border: none;
 }
