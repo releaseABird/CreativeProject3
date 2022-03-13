@@ -19,7 +19,7 @@
         <li>
           <a href="/about">About</a>
         </li>
-        
+
         <li>
         <router-link to="/cart">
         <p>Click to Check Out</p>
@@ -58,7 +58,7 @@
     <footer>
       <div class="footer-item">
         <br>
-        <p>My github: <a href="https://github.com/BYUCS260/grocery-store-releaseABird.git">https://github.com/BYUCS260/grocery-store-releaseABird.git</a></p>
+        <p>My github: <a href="https://github.com/releaseABird/CreativeProject3.git">https://github.com/releaseABird/CreativeProject3.git</a></p>
       </div>
     </footer>
   </div>
